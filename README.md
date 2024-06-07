@@ -1,1 +1,12 @@
-# ai_project_hhw
+# ai_project_9
+
+本项目按照要求，包括以下项目：
+
+1. --9-readme.md，即本文件，系接口调用实例说明
+2. --9-report.pdf，即本项目的完整实验报告
+3. --9-classify，接口类文件
+4. --9-requirements.txt，本项目的实验环境配置文件
+5. --9-train，用于训练的相关文件的文件夹，包含以下内容
+   1. --9-dataset.py，数据集定义文件
+   2. --9-model.py，模型定义文件
+   3. --9-train.py，训练主要文件
