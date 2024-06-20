@@ -18,9 +18,9 @@
 pip install torch torchvision Pillow
 ```
 
-## 类: `ViolenceClass`
+##  `ViolenceClass`类
 
-`ViolenceClass` 用于加载预训练的暴力分类模型并使用它对图像进行分类。以下是其方法和用法的详细说明。
+`ViolenceClass` 用于加载预训练的暴力分类模型并使用它对图像进行分类，是我们项目中的主要接口函数。
 
 ### 初始化
 
@@ -30,8 +30,8 @@ ViolenceClass(ckpt_path, device='cuda:0')
 
 #### 参数:
 
-- `ckpt_path` (str): 模型检查点文件的路径。
-- `device` (str, 可选): 运行模型的设备（'cuda:0' 表示 GPU 或 'cpu' 表示 CPU）。默认为 'cuda:0'。
+- `ckpt_path` : 模型检查点文件的路径。
+- `device` : 运行模型的设备。默认为 'cuda:0'。
 
 #### 示例:
 
@@ -52,7 +52,7 @@ misc(img_paths)
 
 #### 参数:
 
-- `img_paths` (list): 图像文件路径列表。
+- `img_paths`: 图像文件路径列表。
 
 #### 返回:
 
@@ -75,7 +75,7 @@ classify(imgs)
 
 #### 参数:
 
-- `imgs` (torch.Tensor): 形状为 `(batch_size, 3, 224, 224)` 的预处理图像张量。
+- `imgs` : 形状为 `(batch_size, 3, 224, 224)` 的预处理图像张量。
 
 #### 返回:
 
@@ -90,7 +90,7 @@ print(results)  # 输出: [0, 1, 0] 其中 0 和 1 是分类标签，0是无害�
 
 ### 完整示例
 
-以下是一个完整示例，演示如何使用 `ViolenceClass` 对一组图像进行分类。
+以下是一个完整示例。
 
 ```python
 from violence_class import ViolenceClass
@@ -112,4 +112,3 @@ results = classifier.classify(preprocessed_imgs)
 print(results)  # 输出: [0, 1, 0] 其中 0 和 1 是分类标签，0是无害，1是有害
 ```
 
-按照以上步骤，您可以使用预训练模型对图像进行暴力行为分类。
