@@ -13,3 +13,8 @@
    3. --9-train.py，训练主要文件
 7. --9-CNN.py 用于训练CNN模型的一个样例
 8. --9-readme.md，接口类文件的使用说明
+我们的模型文件较大，因此存在网盘中，地址如下：
+ 文件大小: 246.1 MB
+ 分享内容: resnet50_pretrain_test.zip 
+ 链接地址:https://jbox.sjtu.edu.cn/l/w1gVhO   
+ 来自于: 胡皓文  
