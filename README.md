@@ -15,10 +15,11 @@
 8. --9-readme.md，接口类文件的使用说明
    
 我们的模型文件较大，因此存在网盘中，地址如下：
- 文件大小: 246.1 MB
+
+文件大小: 246.1 MB
  
- 分享内容: resnet50_pretrain_test.zip 
+分享内容: resnet50_pretrain_test.zip 
  
- 链接地址:https://jbox.sjtu.edu.cn/l/w1gVhO   
+链接地址:https://jbox.sjtu.edu.cn/l/w1gVhO   
  
- 来自于: 胡皓文  
+来自于: 胡皓文  
