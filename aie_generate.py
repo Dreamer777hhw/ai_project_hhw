@@ -7,8 +7,8 @@ from torchvision.utils import save_image
 from PIL import Image
 
 # 设置输入和输出目录
-input_dir = '/root/autodl-tmp/test_aei'  # 修改为你的实际输入目录
-output_dir = '/root/autodl-tmp/AEI'
+input_dir = 'your/path/to/imgs_dir' 
+output_dir = 'your/path/to/output_dir'
 os.makedirs(output_dir, exist_ok=True)
 
 # 加载预训练模型
