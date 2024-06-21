@@ -7,6 +7,9 @@ import os
 from PIL import Image
 from torchvision import transforms
 from pytorch_lightning import LightningDataModule
+from torch.utils.data import Dataset
+from torch.utils.data import DataLoader
+import torch.nn.functional as F
 
 # 定义CNN模型
 class SimpleCNN(nn.Module):
@@ -74,8 +77,9 @@ class CustomDataModule(LightningDataModule):
     def val_dataloader(self):
         return DataLoader(self.val_dataset, batch_size=self.batch_size, shuffle=False, num_workers=self.num_workers)
 
-# 实例化数据模块
+# 实例化数据模块并调用setup
 data_module = CustomDataModule(batch_size=32)
+data_module.setup()
 
 # 定义训练设备
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
