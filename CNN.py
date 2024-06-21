@@ -35,7 +35,7 @@ class SimpleCNN(nn.Module):
 class CustomDataset(Dataset):
     def __init__(self, split):
         assert split in ["train", "val", "test"]
-        data_root = "/home/huhw/ai-project/violence_dataset/"
+        data_root = "your/path/to/your/dataset_root"
         self.data = [os.path.join(data_root, split, i) for i in os.listdir(data_root + split)]
         self.transforms = transforms.Compose([
             transforms.Resize((224, 224), interpolation=Image.Resampling.LANCZOS),  # 保证所有图片大小一致
