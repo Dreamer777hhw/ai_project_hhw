@@ -1,6 +1,6 @@
 # Violence Classifier 接口调用实例使用说明
 
-本文档将详细介绍如何使用 `ViolenceClass` 对图像进行暴力行为分类。
+本文档将介绍如何使用 `ViolenceClass` 对暴力图像进行分类。
 
 该接口基于 PyTorch 和 torchvision 构建，需要使用我们预训练过的模型进行操作。
 
@@ -20,7 +20,7 @@ pip install torch torchvision Pillow
 
 ##  `ViolenceClass`类
 
-`ViolenceClass` 用于加载预训练的暴力分类模型并使用它对图像进行分类，是我们项目中的主要接口函数。
+`ViolenceClass` 用于加载预训练的暴力分类模型并使用它对图像进行分类，是我们项目中的主要接口函数。以下初始化，方法: `misc`，方法: `classify`，该类中的三大组成部分
 
 ### 初始化
 
@@ -88,9 +88,7 @@ results = classifier.classify(preprocessed_imgs)
 print(results)  # 输出: [0, 1, 0] 其中 0 和 1 是分类标签，0是无害，1是有害
 ```
 
-### 完整示例
-
-以下是一个完整示例。
+### 一个完整的示例
 
 ```python
 from violence_class import ViolenceClass
@@ -111,4 +109,3 @@ results = classifier.classify(preprocessed_imgs)
 # 输出分类结果
 print(results)  # 输出: [0, 1, 0] 其中 0 和 1 是分类标签，0是无害，1是有害
 ```
-
