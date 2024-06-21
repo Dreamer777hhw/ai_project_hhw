@@ -11,7 +11,7 @@ import torch
 class CustomDataset(Dataset):
     def __init__(self, split):
         assert split in ["train", "val", "test"]
-        data_root = "/root/autodl-tmp/new_train_data/"
+        data_root = "path/to/your/dataset_root_dir"
         self.data = [os.path.join(data_root, split, i) for i in os.listdir(data_root + split)]
         self.transforms = transforms.Compose([
             transforms.Resize((224, 224)),
