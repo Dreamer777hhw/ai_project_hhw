@@ -49,33 +49,33 @@ class ViolenceClass:
             _, preds = torch.max(outputs, 1)
         return preds.cpu().tolist()
 
-# 使用示例
+# # 使用示例
 
-# 假设你的测试图像路径列表是/home/huhw/violence_detector/test_image/中的所有文件
-test_image_paths = [f"/root/autodl-tmp/test_image/{i}" for i in os.listdir("/root/autodl-tmp/test_image")]
+# # 假设你的测试图像路径列表是/home/huhw/violence_detector/test_image/中的所有文件
+# test_image_paths = [f"/root/autodl-tmp/test_image/{i}" for i in os.listdir("/root/autodl-tmp/test_image")]
 
-# 实例化并使用 ViolenceClass 进行分类
-ckpt_path = "/root/autodl-tmp/resnet50_new/version_2/checkpoints/resnet50_new-epoch=31-val_loss=0.12.ckpt"
-# ckpt_path = "/root/autodl-tmp/train_logs/resnet50_new_dataset/version_2/checkpoints/resnet50_new_dataset-epoch=24-val_loss=0.05.ckpt"
-classifier = ViolenceClass(ckpt_path)
+# # 实例化并使用 ViolenceClass 进行分类
+# ckpt_path = "/root/autodl-tmp/resnet50_new/version_2/checkpoints/resnet50_new-epoch=31-val_loss=0.12.ckpt"
+# # ckpt_path = "/root/autodl-tmp/train_logs/resnet50_new_dataset/version_2/checkpoints/resnet50_new_dataset-epoch=24-val_loss=0.05.ckpt"
+# classifier = ViolenceClass(ckpt_path)
 
-# 调用 misc 方法进行预处理
-test_images = classifier.misc(test_image_paths)
+# # 调用 misc 方法进行预处理
+# test_images = classifier.misc(test_image_paths)
 
-# 调用 classify 方法进行分类
-predictions = classifier.classify(test_images)
+# # 调用 classify 方法进行分类
+# predictions = classifier.classify(test_images)
 
-# 生成实际标签
-true_labels = [0 if os.path.basename(path).startswith('0_') else 1 for path in test_image_paths]
+# # 生成实际标签
+# true_labels = [0 if os.path.basename(path).startswith('0_') else 1 for path in test_image_paths]
 
-# 计算准确率和F1指标
-accuracy = accuracy_score(true_labels, predictions)
-f1 = f1_score(true_labels, predictions)
+# # 计算准确率和F1指标
+# accuracy = accuracy_score(true_labels, predictions)
+# f1 = f1_score(true_labels, predictions)
 
-# 打印每个图像的预测结果
-results = ['non-violence', 'violence']
-for img_path, pred in zip(test_image_paths, predictions):
-    print(f"Image: {img_path}, Prediction: {results[pred]}")
+# # 打印每个图像的预测结果
+# results = ['non-violence', 'violence']
+# for img_path, pred in zip(test_image_paths, predictions):
+#     print(f"Image: {img_path}, Prediction: {results[pred]}")
 
-print(f"Accuracy: {accuracy:.4f}")
-print(f"F1 Score: {f1:.4f}")
+# print(f"Accuracy: {accuracy:.4f}")
+# print(f"F1 Score: {f1:.4f}")
