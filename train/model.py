@@ -7,11 +7,10 @@ import torch
 class ViolenceClassifier(LightningModule):
     def __init__(self, num_classes=2, learning_rate=1e-3):
         super().__init__()
-        self.model = models.resnet50(pretrained=True)
-        self.model.fc = nn.Linear(self.model.fc.in_features, num_classes)
+        self.model = models.resnet50(pretrained=False, num_classes=num_classes)
         self.loss_fn = nn.CrossEntropyLoss()
         self.learning_rate = learning_rate
-        self.accuracy = Accuracy(task="multiclass", num_classes=num_classes)
+        self.accuracy = Accuracy(task="multiclass", num_classes=2)
 
     def forward(self, x):
         return self.model(x)
@@ -25,16 +24,6 @@ class ViolenceClassifier(LightningModule):
         logits = self(x)
         loss = self.loss_fn(logits, y)
         self.log('train_loss', loss)
-
-        # 对抗训练
-        epsilon = 0.1
-        x_adv = x + epsilon * torch.sign(torch.autograd.grad(loss, x, retain_graph=True)[0])
-        x_adv = torch.clamp(x_adv, 0, 1)
-        logits_adv = self(x_adv)
-        loss_adv = self.loss_fn(logits_adv, y)
-        loss = (loss + loss_adv) / 2
-        self.log('train_loss_adv', loss_adv)
-
         return loss
 
     def validation_step(self, batch, batch_idx):
